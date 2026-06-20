@@ -4,6 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
+import os
 
 
 def pregunta_05():
@@ -17,7 +18,7 @@ def pregunta_05():
     """
     dic = {}
     total = []
-    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    ruta = os.path.join("files", "input", "data.csv")
     with open(ruta, "r") as data:
         for row in data:
             row = row.split('\t')[0:2]
@@ -25,8 +26,6 @@ def pregunta_05():
             total.append(row)
     total.sort()
     lista = sorted(list(dic.items()))
-    print(f"unicos:{lista}")
-    print(f"total:{total}")
     #lista = pregunta_02()
     inicio = 0
     final= lista[0][1]
@@ -47,8 +46,4 @@ def pregunta_05():
 
         respuesta.append((lista[i][0],int(maximo),int(minimo)))
 
-    return respuesta
-
-print(pregunta_05())
-    
-    
+    return respuesta  

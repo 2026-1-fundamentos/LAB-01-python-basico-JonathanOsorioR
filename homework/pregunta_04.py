@@ -4,6 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
+import os
 
 
 def pregunta_04():
@@ -26,7 +27,7 @@ def pregunta_04():
      ('12', 3)]
 
     """
-    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    ruta = os.path.join("files", "input", "data.csv")
     dic = {}
     with open(ruta, "r") as data:
 
@@ -39,5 +40,3 @@ def pregunta_04():
                 dic[i]=1
     meses = sorted(list(dic.items()))
     return meses
-
-print(pregunta_04())

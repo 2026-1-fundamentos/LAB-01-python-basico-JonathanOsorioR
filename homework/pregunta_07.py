@@ -4,7 +4,7 @@ datos requeridos se encuentran en el archivo data.csv. En este laboratorio
 solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
-
+import os
 
 def pregunta_07():
     """
@@ -25,7 +25,7 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
-    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    ruta = os.path.join("files", "input", "data.csv")
     dic = {}
     with open(ruta, "r") as data:
         for line in data:
@@ -36,4 +36,3 @@ def pregunta_07():
                 dic[int(line[1])]=[line[0]]
     dic = sorted(list(dic.items()))
     return dic
-print(pregunta_07())

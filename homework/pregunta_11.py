@@ -16,3 +16,18 @@ def pregunta_11():
 
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+        for row in data:
+            row = row.split("\t")
+            row = [row[1],row[3].split(",")]
+            for i in row[1]:
+                if i in dic:
+                    dic[i] += int(row[0])
+                else:
+                    dic[i] = int(row[0])
+    ordenado = dict(sorted(dic.items()))
+    return ordenado
+
+print(pregunta_11())

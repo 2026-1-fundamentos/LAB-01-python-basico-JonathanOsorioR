@@ -15,3 +15,17 @@ def pregunta_02():
     [('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+ 
+        for i in data:
+            i=i.split('\t')[0]
+            if i in dic:
+                dic[i]+=1
+
+            else:
+                dic[i]=1
+    lista = sorted(list(dic.items()))
+    print(lista)
+    return lista

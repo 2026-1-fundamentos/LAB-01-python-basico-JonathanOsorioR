@@ -14,3 +14,10 @@ def pregunta_01():
     214
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    with open(ruta, "r") as data:
+        suma = sum(int(row.split('\t')[1]) for row in data)
+
+    return suma
+            
+print(pregunta_01())

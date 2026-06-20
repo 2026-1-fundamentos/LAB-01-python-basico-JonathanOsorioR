@@ -15,3 +15,19 @@ def pregunta_12():
     {'A': 177, 'B': 187, 'C': 114, 'D': 136, 'E': 324}
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+        for row in data:
+            row = row.strip("\n").split("\t")
+            row = [row[0],row[4].split(",")]
+
+            for i in row[1]:
+                i = i.split(":")
+                if row[0] in dic:
+                    dic[row[0]] += int(i[1])
+                else:
+                    dic[row[0]] = int(i[1])
+    dic = dict(sorted(dic.items()))
+    return dic
+print(pregunta_12())

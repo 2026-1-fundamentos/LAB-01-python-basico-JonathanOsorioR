@@ -15,3 +15,40 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    dic = {}
+    total = []
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    with open(ruta, "r") as data:
+        for row in data:
+            row = row.split('\t')[0:2]
+            dic[row[0]] = dic.get(row[0], 0) + 1
+            total.append(row)
+    total.sort()
+    lista = sorted(list(dic.items()))
+    print(f"unicos:{lista}")
+    print(f"total:{total}")
+    #lista = pregunta_02()
+    inicio = 0
+    final= lista[0][1]
+    respuesta = []
+    maximo = 0
+    minimo = 0
+
+    for i in range(len(lista)):
+
+        minimo = min(total[inicio:final])[1]
+        maximo = max(total[inicio:final])[1]
+
+        if final<len(total):
+            inicio = final
+            final += int(lista[i+1][1])
+            print(inicio)
+            print(final)
+
+        respuesta.append((lista[i][0],int(maximo),int(minimo)))
+
+    return respuesta
+
+print(pregunta_05())
+    
+    

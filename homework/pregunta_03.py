@@ -15,3 +15,18 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    dic = {}
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    with open(ruta, "r") as data:
+   
+        for i in data:
+            i = i.split("\t")[0:2]
+            if i[0] in dic:
+                dic[i[0]]+=int(i[1])
+
+            else:
+                dic[i[0]]=int(i[1])
+
+    lista = sorted(list(dic.items()))
+    return lista
+print(pregunta_03())

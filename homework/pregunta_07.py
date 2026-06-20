@@ -25,3 +25,15 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+        for line in data:
+            line = line.split("\t")
+            if int(line[1]) in dic:
+                dic[int(line[1])].append(line[0])
+            else:
+                dic[int(line[1])]=[line[0]]
+    dic = sorted(list(dic.items()))
+    return dic
+print(pregunta_07())

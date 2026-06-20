@@ -20,3 +20,14 @@ def pregunta_10():
 
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    lista = []
+    with open(ruta, "r") as data:
+        for row in data:
+            row = row.strip("\n").split("\t")
+            row[3] = row[3].split(",")
+            row[4] = row[4].split(",")
+            lista.append((row[0],len(row[3]),len(row[4])))
+    return lista
+
+print(pregunta_10())

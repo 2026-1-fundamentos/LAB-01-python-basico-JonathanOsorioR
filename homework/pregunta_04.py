@@ -26,3 +26,18 @@ def pregunta_04():
      ('12', 3)]
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+
+        for i in data:
+            i = i.split('\t')[2].split("-")[1]
+            if i in dic:
+                dic[i]+=1
+
+            else:
+                dic[i]=1
+    meses = sorted(list(dic.items()))
+    return meses
+
+print(pregunta_04())

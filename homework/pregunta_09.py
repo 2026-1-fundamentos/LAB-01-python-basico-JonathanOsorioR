@@ -24,3 +24,17 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    ruta = r"C:\fundamentos\Laboratorios\LAB-01-python-basico-JonathanOsorioR\files\input\data.csv"
+    dic = {}
+    with open(ruta, "r") as data:
+        for row in data:
+            row = row.strip("\n").split("\t")[4].split(",")
+            for i in row:
+                i=i.split(":")
+                #i[1] = int(i[1])
+                if i[0] in dic:
+                    dic[i[0]]+=1
+                else:
+                    dic[i[0]]=1
+    return dic
+print(pregunta_09())
